@@ -16,3 +16,9 @@ Mobile/phone number in parentheses format: (123) 456-7890.
 International prefixes and extensions are allowed: +1 (123) 456-7890 ext 9876
 
 HTTP "Tel:" links are created for click and call operation for mobiles
+
+3. Installation
+
+Add the php source code to your child-theme functions.php file
+
+or use the Code Snippet plugin https://wordpress.org/plugins/code-snippets/
