@@ -1,5 +1,8 @@
 <?php
 
+// Version 1.0  
+// Date June 03 2021
+
 add_filter( 'um_view_field_value_text', 'my_custom_view_field_value', 10, 2);
 
 function my_custom_view_field_value( $res, $data ) {
