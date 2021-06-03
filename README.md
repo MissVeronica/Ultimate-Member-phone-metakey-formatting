@@ -21,4 +21,4 @@ HTTP "Tel:" links are created for click and call operation for mobiles
 
 Add the php source code to your child-theme functions.php file
 
-or use the Code Snippet plugin https://wordpress.org/plugins/code-snippets/
+or use the Code Snippet plugin: https://wordpress.org/plugins/code-snippets/
