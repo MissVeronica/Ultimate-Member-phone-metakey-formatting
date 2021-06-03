@@ -2,6 +2,7 @@
 
 // Version 1.0  
 // Date June 03 2021
+// https://github.com/MissVeronica/Ultimate-Member-phone-metakey-formatting
 
 add_filter( 'um_view_field_value_text', 'my_custom_view_field_value', 10, 2);
 
