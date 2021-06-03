@@ -1,13 +1,15 @@
 # Ultimate-Member-phone-metakey-formatting
-UM mobile/phone validation and formatting
+
+1. UM mobile/phone validation
 
 Validate Mobile Number and/or Phone Number metakey fields in profile forms: 'phone_number', 'mobile_number'
 
 Validation for a 10 digit number, international number with extensions allowed, delimiters are spaces, dashes, or periods
 
-Instructions: https://docs.ultimatemember.com/article/94-apply-custom-validation-to-a-field
+Instructions form implementation: https://docs.ultimatemember.com/article/94-apply-custom-validation-to-a-field
 
-Display of profiles
+
+2. UM mobile/phone formatting
 
 Mobile/phone number in parentheses format: (123) 456-7890. 
 
