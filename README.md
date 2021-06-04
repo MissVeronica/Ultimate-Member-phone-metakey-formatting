@@ -25,3 +25,11 @@ HTTP "Tel:" links are created for click and call operation for mobiles
 Add the php source code to your child-theme functions.php file
 
 or use the Code Snippet plugin: https://wordpress.org/plugins/code-snippets/
+
+4. Code Sources
+
+https://stackoverflow.com/questions/123559/how-to-validate-phone-numbers-using-regex
+
+https://stackoverflow.com/questions/4708248/formatting-phone-numbers-in-php
+
+
