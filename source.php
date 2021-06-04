@@ -28,8 +28,11 @@ function format_phone_string( $raw_number ) {
 
     $mobile = preg_replace( '/\D/', '', $raw_number );  // remove everything but numbers 
     $str = strlen( $mobile );
+    
     if( $str > 10 ) {    
+        
         $extension = str_replace( array( 'extension', 'ext'), 'x' , $raw_number );
+        
         if( str_contains( $extension, 'x' )) {
             $extension = explode( 'x', $extension );
             $mobile = preg_replace( '/\D/', '', $extension[0] );
@@ -37,6 +40,7 @@ function format_phone_string( $raw_number ) {
         } else $extension = '';
 
         $str = strlen( $mobile );
+
         if( $str > 10 && substr( $raw_number, 0, 1 ) == '+' ) {
             $country_code = '+' . substr( $mobile, 0, $str - 10 );
             $mobile = substr( $mobile, -10 );
