@@ -12,7 +12,9 @@ function my_custom_view_field_value( $res, $data ) {
 	if( $data['metakey'] == 'phone_number' || $data['metakey'] == 'mobile_number' ) {
         if( isset( $res ) && $res != '' ) {
             $mobile = format_phone_string( $res );
-            $res = '<a href="tel:' . $mobile[0] . preg_replace( '/\D/', '', $mobile[1] ) . '">' . $mobile[0] . ' ' . $mobile[1] . '</a> ' . $mobile[2];
+            if( $mobile && is_array( $mobile )) {
+                $res = '<a href="tel:' . $mobile[0] . preg_replace( '/\D/', '', $mobile[1] ) . '">' . $mobile[0] . ' ' . $mobile[1] . '</a> ' . $mobile[2];
+            }
         }
 	}
 	return $res;
@@ -40,6 +42,8 @@ function format_phone_string( $raw_number ) {
             $mobile = substr( $mobile, -10 );
         } else $country_code = '';
     }
+
+    if( strlen( $mobile ) != 10 ) return false;             // Unsuccessful number leave as is
 
     $arr_number = str_split( $mobile );                     // split each number into an array    
     array_unshift( $arr_number, 'dummy' );                  // add a dummy value to the beginning of the array   
