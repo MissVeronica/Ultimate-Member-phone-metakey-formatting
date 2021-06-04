@@ -2,6 +2,8 @@
 
 // Version 1.0.1  
 // Date June 04 2021
+// Ultimate Member phone metakey formatting
+
 
 add_filter( 'um_view_field_value_text', 'my_custom_view_field_value', 10, 2);
 
@@ -9,8 +11,8 @@ function my_custom_view_field_value( $res, $data ) {
 	
 	if( $data['metakey'] == 'phone_number' || $data['metakey'] == 'mobile_number' ) {
            if( isset( $res ) && $res != '' ) {
-               $mobile = format_phone_string( $res );
-               $res = '<a href="tel:' . $mobile[0] . preg_replace( '/\D/', '', $mobile[1] ) . '">' . $mobile[0] . ' ' . $mobile[1] . '</a> ' . $mobile[2];
+              $mobile = format_phone_string( $res );
+              $res = '<a href="tel:' . $mobile[0] . preg_replace( '/\D/', '', $mobile[1] ) . '">' . $mobile[0] . ' ' . $mobile[1] . '</a> ' . $mobile[2];
            }
 	}
 	return $res;
@@ -73,8 +75,9 @@ add_action( 'um_custom_field_validation_phone_number',  'um_custom_validate_mobi
  */
 function um_custom_validate_mobile_number( $key, $array, $args ) {
 
-    //  A regex for a 7 or 10 digit number, with extensions allowed, delimiters are spaces, dashes, or periods
-    //  https://stackoverflow.com/questions/123559/how-to-validate-phone-numbers-using-regex
+    //  A regex for a 7 or 10 digit number, with extensions and international prefix allowed
+    //  number delimiters are spaces, dashes or periods
+    //  Source: https://stackoverflow.com/questions/123559/how-to-validate-phone-numbers-using-regex
 
     if ( isset( $args[$key] )) {
         if( !preg_match( "/^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/i", $args[$key] )) { 
@@ -82,5 +85,3 @@ function um_custom_validate_mobile_number( $key, $array, $args ) {
         }
     }
 }
-
-
