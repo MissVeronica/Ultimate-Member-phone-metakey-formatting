@@ -10,7 +10,7 @@ add_filter( 'um_view_field_value_text', 'my_custom_view_field_value', 10, 2);
 function my_custom_view_field_value( $res, $data ) {
 	
 	if( $data['metakey'] == 'phone_number' || $data['metakey'] == 'mobile_number' ) {
-        if( isset( $res ) && $res != '' ) {
+        if( isset( $res ) && trim( $res ) != '' ) {
             $mobile = format_phone_string( $res );
             if( $mobile && is_array( $mobile )) {
                 $res = '<a href="tel:' . $mobile[0] . preg_replace( '/\D/', '', $mobile[1] ) . '">' . $mobile[0] . ' ' . $mobile[1] . '</a> ' . $mobile[2];
@@ -87,7 +87,7 @@ function um_custom_validate_mobile_number( $key, $array, $args ) {
     //  number delimiters are spaces, dashes or periods
     //  Source: https://stackoverflow.com/questions/123559/how-to-validate-phone-numbers-using-regex
 
-    if ( isset( $args[$key] ) && $args[$key] != '' ) {
+    if ( isset( $args[$key] ) && trim( $args[$key] ) != '' ) {
         if( !preg_match( "/^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/i", $args[$key] )) { 
             UM()->form()->add_error( $key, __( 'Please enter valid Mobile/Phone Number.', 'ultimate-member' ));
         }
