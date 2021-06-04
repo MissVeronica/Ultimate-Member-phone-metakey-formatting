@@ -2,7 +2,7 @@
 
 // Version 1.0.1  
 // Date June 04 2021
-// Ultimate Member phone metakey validating and formatting
+// Ultimate Member phone metakey validation and formatting
 
 
 add_filter( 'um_view_field_value_text', 'my_custom_view_field_value', 10, 2);
