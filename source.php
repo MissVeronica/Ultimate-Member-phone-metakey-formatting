@@ -35,7 +35,7 @@ function format_phone_string( $raw_number ) {
         } else $extension = '';
 
         $str = strlen( $mobile );
-        if( $str > 10 ) {
+        if( $str > 10 && substr( $raw_number, 0, 1 ) == '+' ) {
             $country_code = '+' . substr( $mobile, 0, $str - 10 );
             $mobile = substr( $mobile, -10 );
         } else $country_code = '';
